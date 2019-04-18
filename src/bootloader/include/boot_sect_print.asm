@@ -1,5 +1,5 @@
-print:
-    pusha
+print_text:
+    pusha ; push all
     
     printloop:
         mov al, [bx]
@@ -12,8 +12,19 @@ print:
         inc bx
         jmp printloop
 
-
     exitprint:
+    popa ; pop all
+    ret
+
+print_digit:
+    pusha
+    
+    mov al, bl
+    add al, 0x30 ; convert to ASCII digit
+
+    mov ah, 0x0E
+    int 0x10
+
     popa
     ret
 
