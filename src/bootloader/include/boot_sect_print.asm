@@ -1,3 +1,4 @@
+[bits 16]
 print_text:
     pusha ; push all
     
